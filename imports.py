@@ -1,12 +1,11 @@
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, messagebox, Label, Frame, Toplevel, BooleanVar, Checkbutton
-from PIL import ImageFont, ImageDraw, Image, ImageDraw
-from ultralytics import YOLO
 from pathlib import Path
-from tracker import *
-import pandas as pd
-import numpy as np
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, messagebox, Label
 import webbrowser
+import shutil
+from ultralytics import YOLO
+from tracker import *
+import numpy as np
+import pandas as pd
 import cvzone
-import time
 import math
 import cv2
