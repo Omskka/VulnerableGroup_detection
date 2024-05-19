@@ -9,7 +9,6 @@ class Tracker:
         # each time a new object id detected, the count will increase by one
         self.id_count = 0
 
-
     def update(self, objects_rect):
         # Objects boxes and ids
         objects_bbs_ids = []
@@ -27,7 +26,7 @@ class Tracker:
 
                 if dist < 35:
                     self.center_points[id] = (cx, cy)
-#                    print(self.center_points)
+                    #                    print(self.center_points)
                     objects_bbs_ids.append([x, y, w, h, id])
                     same_object_detected = True
                     break
