@@ -1,4 +1,6 @@
-{0: 'wheelchair',
-1: 'crutches',
-2: 'prams'
-}
+{0: 'Wheel',
+1: 'Wheel-chairs',
+2: 'handicap-people', 
+3: 'people_wheelchair', 
+4: 'wheel chair', 
+5: 'wheelchair'}
