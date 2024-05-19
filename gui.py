@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent
 ASSETS_PATH = BASE_DIR / "assets" / "frame0"  # assets directory path
 VIDEO_DIRECTORY = BASE_DIR / "videos"  # 'videos' directory path
 MODEL_PATH = BASE_DIR / "3val_18.pt"  # YOLOv8 model path
-CLASSES_PATH = BASE_DIR / "class.txt"  # 'classes' file path
+CLASSES_PATH = BASE_DIR / "classes.txt"  # 'classes' file path
 
 
 def relative_to_assets(path: str) -> Path:
@@ -199,7 +199,7 @@ entry_1.bind("<FocusIn>", on_entry_click)
 # Create a label for the hyperlink
 info_label = Label(
     window,
-    text="For zone configuration, click here",
+    text="For configuration, click here",
     fg="white",  # Set text color to blue
     bg="#387EF5",  # Set background color to the same as the blue background
     cursor="hand2",  # Change cursor to a hand when hovering over the label
