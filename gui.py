@@ -1,6 +1,6 @@
 from imports import *
 
-# Define base directory  helooo
+# Define base directory
 BASE_DIR = Path(__file__).resolve().parent
 
 # Define paths
