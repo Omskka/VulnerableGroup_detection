@@ -49,7 +49,7 @@ window.geometry("1000x600")
 window.configure(bg="#F5F4F4")
 
 # set default toggle to 'off'
-toggle_state = False
+toggle_state = BooleanVar(value=False)
 
 canvas = Canvas(
     window,
@@ -363,7 +363,7 @@ def config_window(event):
     entry8.place(x=entry_x, y=entry_y)
 
     # Toggle button
-    toggle_var = BooleanVar(value=toggle_state)
+    toggle_var = BooleanVar(value=toggle_state.get())
     toggle_button = Checkbutton(conf_window, text="Toggle On/Off", variable=toggle_var, bg="#F5F4F4", font=("Inter", 16))
     toggle_button.place(x=850, y=550)
 
@@ -598,7 +598,7 @@ def train_model_and_play(video_path):
 
             # Draw traffic lights if button is toggled
             current_phase = elapsed_time % total_time
-            if toggle_state.get():
+            if toggle_var.get():
                 draw_traffic_light(current_phase)
 
             frame_height, frame_width, _ = display_frame.shape
