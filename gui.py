@@ -1,6 +1,6 @@
 from imports import *
 
-# Define base directory  
+# Define base directory
 BASE_DIR = Path(__file__).resolve().parent
 
 # Define paths
@@ -49,7 +49,7 @@ window.geometry("1000x600")
 window.configure(bg="#F5F4F4")
 
 # set default toggle to 'off'
-toggle_var = BooleanVar(value=False)
+toggle_state = False
 
 canvas = Canvas(
     window,
@@ -208,15 +208,6 @@ info_label = Label(
 info_label.place(x=38, y=460)
 
 
-# Function to go back from config to main window
-def go_back():
-    # Destroy the conf_window
-    conf_window.destroy()
-
-    # Restore the window
-    window.deiconify()
-
-
 def validate_entries():
     global X1, Y1, X2, Y2, X3, Y3, X4, Y4
 
@@ -246,7 +237,7 @@ def config_window(event):
     window.iconify()
 
     # Create window
-    global conf_window ,entry1, entry2, entry3, entry4, entry5, entry6, entry7, entry8, toggle_var
+    global conf_window ,entry1, entry2, entry3, entry4, entry5, entry6, entry7, entry8, toggle_state, toggle_var
     conf_window = Toplevel(window)
     conf_window.geometry("1000x600")
     conf_window.configure(bg="#F5F4F4")
@@ -372,7 +363,7 @@ def config_window(event):
     entry8.place(x=entry_x, y=entry_y)
 
     # Toggle button
-    toggle_var = BooleanVar()
+    toggle_var = BooleanVar(value=toggle_state)
     toggle_button = Checkbutton(conf_window, text="Toggle On/Off", variable=toggle_var, bg="#F5F4F4", font=("Inter", 16))
     toggle_button.place(x=850, y=550)
 
@@ -396,6 +387,18 @@ def config_window(event):
 
     conf_window.resizable(False, False)
     conf_window.mainloop()
+
+# Function to go back from config to main window
+def go_back():
+    # Retain toggle state upon reopening
+    global toggle_state, toggle_var
+    toggle_state = toggle_var.get()
+
+    # Destroy the conf_window
+    conf_window.destroy()
+
+    # Restore the window
+    window.deiconify()
 
 # Global variables to track time and traffic light state
 green_time = 2
@@ -595,7 +598,7 @@ def train_model_and_play(video_path):
 
             # Draw traffic lights if button is toggled
             current_phase = elapsed_time % total_time
-            if toggle_var.get():
+            if toggle_state:
                 draw_traffic_light(current_phase)
 
             frame_height, frame_width, _ = display_frame.shape

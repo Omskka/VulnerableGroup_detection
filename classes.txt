@@ -1,0 +1,4 @@
+{0: 'wheelchair',
+1: 'crutches',
+2: 'prams'
+}
