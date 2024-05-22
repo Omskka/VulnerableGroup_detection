@@ -598,7 +598,7 @@ def train_model_and_play(video_path):
 
             # Draw traffic lights if button is toggled
             current_phase = elapsed_time % total_time
-            if toggle_state.get():
+            if toggle_state:
                 draw_traffic_light(current_phase)
 
             frame_height, frame_width, _ = display_frame.shape
