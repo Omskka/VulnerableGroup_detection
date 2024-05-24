@@ -20,20 +20,21 @@ def store_video_path():
     train_model_and_play(video_path)
 
 
- # count the number of resets
-reset_counter = 0 
+# count the number of resets
+reset_counter = 0
+
 
 def reset_entries():
     global reset_counter, X1, Y1, X2, Y2, X3, Y3, X4, Y4
     # Default coordinates for zoning(Area1)
-    X1 = 0 #400  
-    Y1 = 0 #140
-    X2 = 0 #24
-    Y2 = 600 #477
-    X3 = 1500 #950  
-    Y3 = 600 #477
-    X4 = 1500 #650  
-    Y4 = 0 #140
+    X1 = 0  # 400
+    Y1 = 0  # 140
+    X2 = 0  # 24
+    Y2 = 600  # 477
+    X3 = 1500  # 950
+    Y3 = 600  # 477
+    X4 = 1500  # 650
+    Y4 = 0  # 140
     reset_counter += 1
     # Show info messsage when reset button is pressed(counter > 1)
     if reset_counter > 1:
@@ -119,7 +120,7 @@ canvas.create_text(
 # Button_1
 button_image_1 = PhotoImage(
     # Change "button_1.png" to "button_2.png" for a rectangle button
-    file=relative_to_assets("button_2.png"))  
+    file=relative_to_assets("button_2.png"))
 
 # Update the button command to call play_video function
 button_1 = Button(
@@ -237,7 +238,7 @@ def config_window(event):
     window.iconify()
 
     # Create window
-    global conf_window ,entry1, entry2, entry3, entry4, entry5, entry6, entry7, entry8, toggle_state, toggle_var
+    global conf_window, entry1, entry2, entry3, entry4, entry5, entry6, entry7, entry8, toggle_state, toggle_var
     conf_window = Toplevel(window)
     conf_window.geometry("1000x600")
     conf_window.configure(bg="#F5F4F4")
@@ -364,17 +365,18 @@ def config_window(event):
 
     # Toggle button
     toggle_var = BooleanVar(value=toggle_state)
-    toggle_button = Checkbutton(conf_window, text="Toggle On/Off", variable=toggle_var, bg="#F5F4F4", font=("Inter", 16))
+    toggle_button = Checkbutton(conf_window, text="Toggle On/Off", variable=toggle_var, bg="#F5F4F4",
+                                font=("Inter", 16))
     toggle_button.place(x=850, y=550)
 
     canvas2.create_text(
-    660.0,
-    553.0,
-    anchor="nw",
-    text="Traffic light visualization",
-    fill="#625F80",
-    font=("Inter ExtraBold", 15 * -1)
-    )   
+        660.0,
+        553.0,
+        anchor="nw",
+        text="Traffic light visualization",
+        fill="#625F80",
+        font=("Inter ExtraBold", 15 * -1)
+    )
 
     # Calculate the center coordinates of the screen
     screen_width = conf_window.winfo_screenwidth()
@@ -388,6 +390,7 @@ def config_window(event):
     conf_window.resizable(False, False)
     conf_window.mainloop()
 
+
 # Function to go back from config to main window
 def go_back():
     # Retain toggle state upon reopening
@@ -400,10 +403,12 @@ def go_back():
     # Restore the window
     window.deiconify()
 
+
 # Global variables to track time and traffic light state
-green_time = 2
-yellow_time = 2
-red_time = 2
+duration = 2
+green_time = duration
+yellow_time = duration
+red_time = duration
 extra_red_duration = 10
 extra_green_duration = 10
 total_time = green_time + yellow_time + red_time
@@ -467,22 +472,26 @@ info_label.bind("<Button-1>", config_window)
 
 
 def train_model_and_play(video_path):
-    global green_time, extra_green_duration, red_time, extra_red_duration, total_time, toggle_var
+    global green_time, extra_green_duration, red_time, extra_red_duration, total_time, duration, red_time, green_time
 
     model = YOLO(MODEL_PATH)
 
+    # Reset red light duration
+    red_time = duration
+
     # Read from webcam 
     print(video_path)
-    if video_path == VIDEO_DIRECTORY/"live" or video_path ==VIDEO_DIRECTORY/"LIVE" or video_path ==VIDEO_DIRECTORY/"Live":
+    if video_path == VIDEO_DIRECTORY / "live" or video_path == VIDEO_DIRECTORY / "LIVE" or video_path == VIDEO_DIRECTORY / "Live":
         cap = cv2.VideoCapture(0)
 
     # Read from videopath
     else:
         cap = cv2.VideoCapture(str(video_path))
         if not cap.isOpened():
-            messagebox.showerror("error", "Error: Could not open video file.\nPlease make sure the video is in the 'videos' directory.")
-            return 
-    
+            messagebox.showerror("error",
+                                 "Error: Could not open video file.\nPlease make sure the video is in the 'videos' directory.")
+            return
+
     my_file = open(CLASSES_PATH, "r")
     data = my_file.read()
     class_list = data.split("\n")
@@ -523,15 +532,15 @@ def train_model_and_play(video_path):
 
             list = []
             # Extract confidence scores
-            confidence_scores = results[0].boxes.conf.cpu().numpy()  
+            confidence_scores = results[0].boxes.conf.cpu().numpy()
             for index, row in px.iterrows():
                 x1 = int(row[0])
                 y1 = int(row[1])
                 x2 = int(row[2])
                 y2 = int(row[3])
-                d  = int(row[5])
+                d = int(row[5])
                 # Get the corresponding confidence score
-                confidence_score = confidence_scores[index]  
+                confidence_score = confidence_scores[index]
 
                 c = class_list[d]
                 if ('wheelchair' in c or 'crutches' in c or 'prams' in c):
@@ -561,7 +570,7 @@ def train_model_and_play(video_path):
                             elif class_label == "crutches":
                                 crutches_in_zone.append(id)
                             elif class_label == "prams":
-                                prams_in_zone.append(id) 
+                                prams_in_zone.append(id)
 
                     cv2.circle(frame, (x4, y4), 5, (0, 0, 255), -1)
                     cv2.rectangle(frame, (x3, y3), (x4, y4), (255, 255, 255), 2)
@@ -618,6 +627,7 @@ def train_model_and_play(video_path):
     cap.release()
     cv2.destroyAllWindows()
     window.deiconify()
+
 
 # Calculate the center coordinates of the screen
 screen_width = window.winfo_screenwidth()
