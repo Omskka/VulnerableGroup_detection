@@ -476,7 +476,7 @@ def train_model_and_play(video_path):
 
     model = YOLO(MODEL_PATH)
 
-    # Reset red light duration
+    # Reset light duration
     red_time = duration
 
     # Read from webcam 
