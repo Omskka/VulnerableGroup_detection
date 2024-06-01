@@ -61,6 +61,7 @@ reset_entries()
 
 # Create window
 window = Tk()
+window.title("Vulnerable Group Detection App")
 window.geometry("1000x600")
 window.configure(bg="#F5F4F4")
 
@@ -609,7 +610,7 @@ def train_model_and_play(video_path):
                         (255, 255, 255), 2)
 
             display_frame = np.hstack((count_image, frame))
-            cv2.imshow('Video Player', display_frame)
+            cv2.imshow('Detection Window', display_frame)
 
             # Draw traffic lights if button is toggled
             current_phase = elapsed_time % total_time
