@@ -5,7 +5,6 @@ BASE_DIR = Path(__file__).resolve().parent
 
 # Define paths
 ASSETS_PATH = BASE_DIR / "assets" / "frame0"  # assets directory path
-VIDEO_DIRECTORY = BASE_DIR / "videos"  # 'videos' directory path
 MODEL_PATH = BASE_DIR / "best.pt"  # YOLOv8 model path
 CLASSES_PATH = BASE_DIR / "classes.txt"  # 'classes' file path
 
@@ -28,6 +27,11 @@ def store_video_path():
         messagebox.showerror("Error", "No video file selected.")
         return
 
+    train_model_and_play(video_path)
+
+def store_live_video_path():
+    global video_path
+    video_path = "live"
     train_model_and_play(video_path)
 
 
@@ -129,7 +133,7 @@ canvas.create_text(
     font=("Inter", 16 * -1)
 )
 
-# Button_1
+# Button for file selection
 button_image_1 = PhotoImage(
     # Change "button_1.png" to "button_2.png" for a rectangle button
     file=relative_to_assets("button_2.png"))
@@ -150,6 +154,31 @@ button_1 = Button(
 button_1.place(
     x=677.0,
     y=325.0,
+    width=144.0,
+    height=55.0
+)
+
+# Button for live detection
+button_image_2 = PhotoImage(
+    # Change "button_1.png" to "button_2.png" for a rectangle button
+    file=relative_to_assets("button_2.png"))
+
+# Update the button command to call play_video function
+button_2 = Button(
+    image=button_image_1,
+    borderwidth=0,
+    highlightthickness=0,
+    command=store_live_video_path,  # Call store_video_path function when button is clicked
+    relief="flat",
+    text="Live Detection",
+    compound="center",
+    fg="#FFFFFF",
+    font=("Inter Bold", 12)
+)
+
+button_2.place(
+    x=677.0,
+    y=400.0,
     width=144.0,
     height=55.0
 )
@@ -458,8 +487,7 @@ def train_model_and_play(video_path):
     red_time = duration
 
     # Read from webcam 
-    print(video_path)
-    if video_path == VIDEO_DIRECTORY / "live" or video_path == VIDEO_DIRECTORY / "LIVE" or video_path == VIDEO_DIRECTORY / "Live":
+    if video_path == "live":
         cap = cv2.VideoCapture(0)
 
     # Read from videopath
@@ -467,7 +495,7 @@ def train_model_and_play(video_path):
         cap = cv2.VideoCapture(str(video_path))
         if not cap.isOpened():
             messagebox.showerror("error",
-                                 "Error: Could not open video file.\nPlease make sure the video is in the 'videos' directory.")
+                                 "Error: Could not open video file.")
             return
 
     my_file = open(CLASSES_PATH, "r")
