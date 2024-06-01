@@ -623,7 +623,7 @@ def train_model_and_play(video_path):
             x_coordinate = int((screen_width - frame_width) / 2)
             y_coordinate = int((screen_height - frame_height) / 2)
 
-            cv2.moveWindow('Video Player', x_coordinate, y_coordinate)
+            cv2.moveWindow('Detection Window', x_coordinate, y_coordinate)
 
         key = cv2.waitKey(1)
         if key == ord('q') or not ret:
