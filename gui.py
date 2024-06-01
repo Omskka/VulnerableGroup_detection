@@ -152,7 +152,7 @@ button_1 = Button(
 )
 
 button_1.place(
-    x=677.0,
+    x=665.0,
     y=325.0,
     width=144.0,
     height=55.0
@@ -177,7 +177,7 @@ button_2 = Button(
 )
 
 button_2.place(
-    x=677.0,
+    x=665.0,
     y=400.0,
     width=144.0,
     height=55.0
