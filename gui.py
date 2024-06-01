@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent
 # Define paths
 ASSETS_PATH = BASE_DIR / "assets" / "frame0"  # assets directory path
 VIDEO_DIRECTORY = BASE_DIR / "videos"  # 'videos' directory path
-MODEL_PATH = BASE_DIR / "3val_18.pt"  # YOLOv8 model path
+MODEL_PATH = BASE_DIR / "best.pt"  # YOLOv8 model path
 CLASSES_PATH = BASE_DIR / "classes.txt"  # 'classes' file path
 
 
@@ -14,9 +14,20 @@ def relative_to_assets(path: str) -> Path:
     return BASE_DIR / "assets" / "frame0" / path
 
 
+def select_video_file():
+    file_path = filedialog.askopenfilename(
+        title="Select Video File",
+        filetypes=[("Video files", "*.mp4 *.avi *.mov *.mkv")]
+    )
+    return file_path
+
 def store_video_path():
     global video_path
-    video_path = VIDEO_DIRECTORY / entry_1.get()
+    video_path = select_video_file()
+    if not video_path:
+        messagebox.showerror("Error", "No video file selected.")
+        return
+
     train_model_and_play(video_path)
 
 
@@ -75,7 +86,7 @@ canvas.create_text(
     39.0,
     128.0,
     anchor="nw",
-    text="Wheelchair Detection",
+    text="Vulnerable Group Detection",
     fill="#F5F4F4",
     font=("Inter Bold", 36 * -1)
 )
@@ -101,7 +112,7 @@ canvas.create_text(
 
 canvas.create_text(
     625.0,
-    114.0,
+    180.0,
     anchor="nw",
     text="Enter The Details",
     fill="#625F80",
@@ -110,9 +121,10 @@ canvas.create_text(
 
 canvas.create_text(
     623.0,
-    182.0,
+    245.0,
     anchor="nw",
-    text="Transform Any Video By Simply\nEntering The Name Of Your Video.",
+    text="Transform Any Video By Simply\n"
+    "         Selecting a Video File",
     fill="#625F80",
     font=("Inter", 16 * -1)
 )
@@ -129,7 +141,7 @@ button_1 = Button(
     highlightthickness=0,
     command=store_video_path,  # Call store_video_path function when button is clicked
     relief="flat",
-    text="Generate",
+    text="Select File",
     compound="center",
     fg="#FFFFFF",
     font=("Inter Bold", 12)
@@ -137,42 +149,10 @@ button_1 = Button(
 
 button_1.place(
     x=677.0,
-    y=395.0,
+    y=325.0,
     width=144.0,
     height=55.0
 )
-
-# Textbox
-entry_image_1 = PhotoImage(
-    file=relative_to_assets("entry_1.png"))
-
-entry_bg_1 = canvas.create_image(
-    756.0,
-    316.5,
-    image=entry_image_1
-)
-entry_1 = Entry(
-    bd=0,
-    bg="#FFFFFF",
-    fg="#808080",
-    highlightthickness=0
-)
-entry_1.place(
-    x=593.0,
-    y=292.0,
-    width=326.0,
-    height=47.0
-)
-
-# Insert default text into the Entry widget
-default_text = "Ex. video.mp4"
-entry_1.insert(0, default_text)
-
-
-# Function to remove default text when Entry widget is clicked
-def on_entry_click(event):
-    if entry_1.get() == default_text:
-        entry_1.delete(0, "end")
 
 
 # Function to open the hyperlink in a web browser
@@ -194,8 +174,6 @@ info_label.place(x=25, y=560)
 # Bind <Button-1> event to open_link function
 info_label.bind("<Button-1>", open_link)
 
-# Bind <FocusIn> event to Entry widget
-entry_1.bind("<FocusIn>", on_entry_click)
 
 # Create a label for the hyperlink
 info_label = Label(
@@ -365,7 +343,7 @@ def config_window(event):
 
     # Toggle button
     toggle_var = BooleanVar(value=toggle_state)
-    toggle_button = Checkbutton(conf_window, text="Toggle On/Off", variable=toggle_var, bg="#F5F4F4",
+    toggle_button = Checkbutton(conf_window, text="", variable=toggle_var, bg="#F5F4F4",
                                 font=("Inter", 16))
     toggle_button.place(x=850, y=550)
 
