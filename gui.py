@@ -414,7 +414,7 @@ def go_back():
 
 # Global variables to track time and traffic light state
 duration = 2
-green_time = duration
+green_time = duration + 10
 yellow_time = duration
 red_time = duration
 extra_red_duration = 10
@@ -450,6 +450,8 @@ def draw_traffic_light(current_phase):
         cv2.circle(traffic_light, red_light, radius, GREY, -1)
         cv2.circle(traffic_light, yellow_light, radius, GREY, -1)
         cv2.circle(traffic_light, green_light, radius, GREEN, -1)
+        if object_detected:
+            cv2.putText(traffic_light, "-10 secs", (10, 280), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
     elif current_phase < green_time + yellow_time:
         # Yellow phase
@@ -486,6 +488,7 @@ def train_model_and_play(video_path):
 
     # Reset light duration
     red_time = duration
+    green_time = duration + 10
 
     # Read from webcam 
     if video_path == "live":
@@ -590,6 +593,7 @@ def train_model_and_play(video_path):
                     if not object_detected:
                         # print("RED LIGHT EXTENDED FOR 10 SECS")
                         red_time += extra_red_duration
+                        green_time -= extra_green_duration
                     object_detected = True
 
             cv2.polylines(frame, [np.array(area1, np.int32)], True, (0, 255, 0), 2)
