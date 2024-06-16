@@ -53,7 +53,16 @@ pip install numpy
 <br>
 <br>
 
-<h3>Try It Yourself: Executable and Example Videos</h3>
+### Try It Yourself: Executable and Example Videos
+
+#### Executable File
+- **Note:** The executable file is available in the [Releases section](link_to_releases) of this repository.
+- **Platform:** Currently, it only works on Windows.
+- **Status:** Please note that the executable is still under development and may contain bugs.
+
+#### Example Videos
+- Example videos can be downloaded using the following [link](link_to_example_videos).
+
 
 <br>
 <br>
