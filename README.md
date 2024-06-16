@@ -35,6 +35,7 @@ pip install numpy
 2. Select 'Select File' for video detection or 'Live Detection' for live detection.
 <br>
 <img width="999" alt="Screenshot 2024-06-16 at 5 46 41 PM" src="https://github.com/Omskka/Wheelchair_detection/assets/92455486/5ffc1a0e-3297-4536-8a9f-0eef7d5905d8">
+
 **mp4, avi, mov, mkv formats are supported**
 
 <br>
