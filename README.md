@@ -1,5 +1,5 @@
-### Introduction
-This app leverages YOLOv8 to detect vulnerable groups, 
+#### Introduction
+- This app leverages YOLOv8 to detect vulnerable groups, 
 such as individuals with wheelchairs, crutches, and prams, enhancing accessibility and safety at crosswalks.
 <br>
 <br>
