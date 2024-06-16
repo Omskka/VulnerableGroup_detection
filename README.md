@@ -7,7 +7,6 @@ such as individuals with wheelchairs, crutches, and prams, enhancing accessibili
 - When a vulnerable group is detected, the app extends the red light and decreases the green light duration for <br> cars, 
 ensuring safer and more accessible crossings for these individuals.
 <br>
-<br>
 
 ### Configuration
 1. To incorporate cvzone alongside YOLOv8, make sure you have the requirements installed.<br>
