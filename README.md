@@ -4,7 +4,7 @@ such as individuals with wheelchairs, crutches, and prams, enhancing accessibili
 <br>
 <br>
 
-**Working Mechanism** <br>
+### Working Mechanism <br>
 When a vulnerable group is detected, the app extends the red light and decreases the green light duration for <br> cars, 
 ensuring safer and more accessible crossings for these individuals.
 <br>
