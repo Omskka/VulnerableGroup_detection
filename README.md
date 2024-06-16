@@ -41,7 +41,6 @@ pip install numpy
 <br>
 <br>
 <br>
-<br>
    
 3. Click on 'Zone Configuration' to set the zone area's coordinates for the video. <br>If you choose not to configure any values, the default settings will be used.<br>
     Additionally, utilize the toggle button to enable or disable traffic light visualization. 
