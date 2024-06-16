@@ -44,7 +44,7 @@ pip install numpy
 <br>
 <br>
    
-4. Click on 'Zone Configuration' to set the zone area's coordinates for the video. <br>If you choose not to configure any values, the default settings will be used.<br>
+3. Click on 'Zone Configuration' to set the zone area's coordinates for the video. <br>If you choose not to configure any values, the default settings will be used.<br>
     Additionally, utilize the toggle button to enable or disable traffic light visualization. 
 <br>
 <img width="999" alt="Screenshot 2024-06-16 at 5 46 55 PM" src="https://github.com/Omskka/Wheelchair_detection/assets/92455486/9f9eb4ac-3530-45bc-94f5-a652c2b90633">
