@@ -38,6 +38,8 @@ pip install numpy
 
 <p align="center">Only mp4, avi, mov, mkv formats are supported!</p>
 
+
+
 <br>
 <br>
 <br>
@@ -50,10 +52,13 @@ pip install numpy
 
 <br>
 <br>
-<br>
-<br>
-<img width="1275" alt="Screenshot 2024-06-16 at 6 23 31 PM" src="https://github.com/Omskka/Wheelchair_detection/assets/92455486/663f889e-0add-453e-bdf9-aca9340cf55a">
 
+<h3>Try It Yourself: Executable and Example Videos</h3>
+
+<br>
+<br>
+
+<img width="1275" alt="Screenshot 2024-06-16 at 6 25 13 PM" src="https://github.com/Omskka/Wheelchair_detection/assets/92455486/49ff1672-c7b1-4531-990c-e368a0c28354">
 
 
 
