@@ -22,6 +22,7 @@ pip install opencv-python
 <br>
 If you encounter any issues where pandas or numpy are missing, you can install them separately:
 <br>
+<br>
 
 ```
 pip install pandas
