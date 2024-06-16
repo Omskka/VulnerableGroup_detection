@@ -59,7 +59,7 @@ pip install numpy
 - **Status:** Please note that the executable is still under development and may contain bugs.
 
 #### Example Videos
-- Example videos can be downloaded using the following [link](https://drive.google.com/file/d/1o7GJDo9OuKgb-vWigVe_XdhXuchwsUqh/view?usp=share_link).
+- Example videos can be downloaded using the following [link](https://drive.google.com/file/d/19iihesoc-3TeIMcUFMk2cLZeywz2MWdY/export?format=download).
 
 <br>
 
