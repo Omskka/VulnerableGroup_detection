@@ -5,7 +5,7 @@ such as individuals with wheelchairs, crutches, and prams, enhancing accessibili
 <br>
 
 ### Working Mechanism <br>
-When a vulnerable group is detected, the app extends the red light and decreases the green light duration for <br> cars, 
+- When a vulnerable group is detected, the app extends the red light and decreases the green light duration for <br> cars, 
 ensuring safer and more accessible crossings for these individuals.
 <br>
 <br>
@@ -63,10 +63,10 @@ pip install numpy
 - Example videos can be downloaded using the following [link](link_to_example_videos).
 
 <br>
-<br>
 
 ### App Demonstration <br>
 A visual demonstrations of the application in action. It's clear and straightforward, indicating what users can expect when they view the video player.
+<br>
 <br>
 <img width="1275" alt="Screenshot 2024-06-16 at 6 25 13 PM" src="https://github.com/Omskka/Wheelchair_detection/assets/92455486/49ff1672-c7b1-4531-990c-e368a0c28354">
 
