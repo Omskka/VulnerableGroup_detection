@@ -54,7 +54,7 @@ pip install numpy
 ### Try It Yourself: Executable and Example Videos
 
 #### Executable File
-- **Note:** The executable file is available in the [Releases section](link_to_releases) of this repository.
+- **Note:** The executable file is available in the [Releases section](https://github.com/Omskka/VulnerableGroup_detection/releases/download/v1.0.0/app.exe) of this repository.
 - **Platform:** Currently, it only works on Windows! For macOS, you will need to run the code manually.
 - **Status:** Please note that the executable is still under development and may contain bugs.
 
