@@ -1,4 +1,4 @@
-<h3>Introduction</h3>
+### Introduction
 This app leverages YOLOv8 to detect vulnerable groups, 
 such as individuals with wheelchairs, crutches, and prams, enhancing accessibility and safety at crosswalks.
 <br>
@@ -11,7 +11,7 @@ ensuring safer and more accessible crossings for these individuals.
 <br>
 <br>
 
-<h3>Configuration</h3>
+### Configuration
 1. To incorporate cvzone alongside YOLOv8, make sure you have the requirements installed.<br>
 <br>
 
@@ -57,16 +57,18 @@ pip install numpy
 
 #### Executable File
 - **Note:** The executable file is available in the [Releases section](link_to_releases) of this repository.
-- **Platform:** Currently, it only works on Windows.
+- **Platform:** Currently, it only works on Windows! For macOS, you will need to run the code manually.
 - **Status:** Please note that the executable is still under development and may contain bugs.
 
 #### Example Videos
 - Example videos can be downloaded using the following [link](link_to_example_videos).
 
-
 <br>
 <br>
 
+### App Demonstration <br>
+A visual demonstrations of the application in action. It's clear and straightforward, indicating what users can expect when they view the video player.
+<br>
 <img width="1275" alt="Screenshot 2024-06-16 at 6 25 13 PM" src="https://github.com/Omskka/Wheelchair_detection/assets/92455486/49ff1672-c7b1-4531-990c-e368a0c28354">
 
 
